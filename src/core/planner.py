@@ -5,20 +5,21 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 TASK_FILE = BASE_DIR / "data" / "tasks.json"
 
-def save_task_structured(task: dict, filename: Path = TASK_FILE):
-    filename.parent.mkdir(parents=True, exist_ok=True) 
-    if filename.exists():
+def save_task_structured(task: dict):
+    tasks = []
+
+    if TASK_FILE.exists():
         try:
-            with open(filename, "r", encoding="utf-8") as f:
+            with open(TASK_FILE, "r", encoding="utf-8") as f:
                 tasks = json.load(f)
         except json.JSONDecodeError:
+            print("⚠️ Warning: tasks.json is corrupted. Overwriting.")
             tasks = []
-    else:
-        tasks = []
 
     tasks.append(task)
 
-    with open(filename, "w", encoding="utf-8") as f:
+    TASK_FILE.parent.mkdir(parents=True, exist_ok=True)
+    with open(TASK_FILE, "w", encoding="utf-8") as f:
         json.dump(tasks, f, indent=2, ensure_ascii=False)
 
 

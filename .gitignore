@@ -11,3 +11,6 @@ __pycache__/
 
 # Mantiene protetto il codice di accesso all'utilizzo delle API dell'AI
 .env
+
+# Mantiene pulito il file dei task personali
+src/data/tasks.json
