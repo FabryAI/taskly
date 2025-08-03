@@ -8,3 +8,6 @@
 __pycache__/
 *.pyc
 *.pyo
+
+# Mantiene protetto il codice di accesso all'utilizzo delle API dell'AI
+.env
