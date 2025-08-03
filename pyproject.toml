@@ -1,0 +1,23 @@
+[project]
+name = "taskly"
+version = "0.1.0"
+description = "Daily tasks, powered by AI"
+authors = [
+    {name = "FabrizioAI",email = "fabrizio.programmazione@gmail.com"}
+]
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "typer (>=0.16.0,<0.17.0)",
+    "dateparser (>=1.2.2,<2.0.0)",
+    "pandas (>=2.3.1,<3.0.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
