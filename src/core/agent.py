@@ -26,19 +26,20 @@ def extract_task(text: str) -> dict:
 
     # 🧠 Prompt sent to the model
     prompt = f"""
-Today is {today_str}.
-You are an intelligent task assistant.
-Extract the task from the following command and return ONLY the JSON object in this exact format:
+    Today is {today_str}.
+    You are an intelligent task assistant.
+    Extract the task from the following command and return ONLY the JSON object in this exact format:
 
-{{
-  "intent": "add_task",
-  "description": "...",
-  "datetime": "ISO 8601 format"
-}}
+    {{
+    "intent": "add_task",
+    "description": "...",
+    "datetime": "ISO 8601 format"
+    }}
 
-Command: "{text}"
-JSON:
-"""
+    Command: "{text}"
+    JSON:
+    """
+
 
     headers = {
         "Authorization": f"Bearer {OPENROUTER_API_KEY}",
